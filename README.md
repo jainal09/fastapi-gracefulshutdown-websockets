@@ -7,22 +7,19 @@ that uses websockets.
 
 1. Clone the repository:
 
-    ```sh
+    ```shell
     git clone https://github.com/jainal09/fastapi-gracefulshutdown-websockets.git
     ```
 
 2. Install the dependencies:
-   
-> You will need [poetry](https://python-poetry.org/) to install the project dependencies.
+   You will need [poetry](https://python-poetry.org/) to install the project dependencies.
 
-
-    ```shell
-
-        poetry install --no-dev  # for production or poetry install for development
-        
-    ```
-
+   ```shell
+   poetry install --no-dev # for production
+   # or
+   poetry install # for development
 ## Usage
+
 
 1. Start the FastAPI application:
 
