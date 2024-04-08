@@ -12,12 +12,14 @@ that uses websockets.
     ```
 
 2. Install the dependencies:
-   You will need [poetry](https://python-poetry.org/) to install the project dependencies.
+   
+   > You will need [poetry](https://python-poetry.org/) to install the project dependencies.
 
    ```shell
    poetry install --no-dev # for production
    # or
    poetry install # for development
+   ```
 ## Usage
 
 

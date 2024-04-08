@@ -4,6 +4,7 @@ from typing import Dict
 from fastapi import WebSocket
 
 from services.db_ops.flag_ops import read_flag
+from services.kubernetes_services import get_pod_name
 
 
 class ConnectionManager:
@@ -14,6 +15,7 @@ class ConnectionManager:
         print(read_flag())
         if read_flag():
             await websocket.accept()
+            await websocket.send_text(get_pod_name())
             self.active_connections[id] = websocket
         else:
             await websocket.close(code=1000)  # Close the connection without accepting
