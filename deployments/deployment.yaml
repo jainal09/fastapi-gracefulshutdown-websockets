@@ -24,7 +24,7 @@ spec:
             port: 8000
           initialDelaySeconds: 5
           periodSeconds: 5
-        image: jainal09/grs-fast-api:v6
+        image: jainal09/grs-fast-api:v7
         imagePullPolicy: Always
         env:
         - name: PYTHONUNBUFFERED
