@@ -6,6 +6,13 @@ from models.db.models import SessionLocal, Task
 
 
 def save_to_db(task_db_obj: Task) -> None:
+    """
+    Save the task to the database
+    Args:
+        task_db_obj: Task object
+    Returns:
+        None
+    """
     try:
         db.add(task_db_obj)
         db.commit()
@@ -18,6 +25,14 @@ def save_to_db(task_db_obj: Task) -> None:
 
 
 def update_task(task_id: str, message: str):
+    """
+    Update the task in the database
+    Args:
+        task_id: Task ID
+        message: Message to be updated
+    Returns:
+        None
+    """
     db = SessionLocal()
     try:
         task = db.query(Task).filter(Task.task_id == task_id).first()

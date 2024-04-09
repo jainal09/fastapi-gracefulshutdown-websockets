@@ -15,9 +15,16 @@ queue = settings_config.queue
 
 
 @router.get("/health")
-async def health():
+async def health() -> JSONResponse:
+    """
+    Health check for the server
+    Args:
+        None
+    Returns:
+        JSONResponse: JSON response
+    """
     if read_flag():
-        return {"status": "ok"}
+        return JSONResponse(status_code=200, content={"status": "ok"})
     else:
         return JSONResponse(
             status_code=503, content={"status": "Service Under Graceful Shutdown"}
@@ -25,7 +32,16 @@ async def health():
 
 
 @router.post("/create-task/")
-async def create_task(background_tasks: BackgroundTasks):
+async def create_task(background_tasks: BackgroundTasks) -> dict:
+    """
+    Create a task and add it to the queue
+    Args:
+        background_tasks: BackgroundTasks
+    Returns:
+        dict: Response message
+    """
+    if not read_flag():
+        raise HTTPException(status_code=503, detail="Service Under Graceful Shutdown")
     task_id = str(uuid.uuid4())
     queue_task(task_id=task_id)
     print("🚀 Background process started 🚀")
@@ -37,7 +53,14 @@ async def create_task(background_tasks: BackgroundTasks):
 
 
 @router.get("/tasks/{task_id}", response_model=TaskOut)
-async def read_task_by_id(task_id: str):
+async def read_task_by_id(task_id: str): # type: ignore
+    """
+    Get Status of a Task
+    Args:
+        task_id: Task ID
+    Returns:
+        TaskOut: Task object
+    """
     db = SessionLocal()
     try:
         task = db.query(Task).filter(Task.task_id == task_id).first()
@@ -53,4 +76,11 @@ async def read_task_by_id(task_id: str):
 
 @router.get("/get_queue_length/", response_model=QueueOut)
 async def read_task():
+    """
+    Get the length of the queue
+    Args:
+        None
+    Returns:
+        QueueOut: Queue object
+    """
     return QueueOut(task_lenth=len(queue))

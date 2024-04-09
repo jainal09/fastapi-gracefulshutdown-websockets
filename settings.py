@@ -6,6 +6,9 @@ from services.WebSocketConnectionsManager import ConnectionManager
 
 
 class Settings:
+    """
+    Settings class to store the configuration
+    """
     manager = ConnectionManager()
     app = FastAPI()
     queue = []
