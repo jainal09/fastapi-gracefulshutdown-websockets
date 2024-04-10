@@ -10,7 +10,7 @@ class ConnectionManager:
     """
     Connection Manager class to manage the WebSocket connections
     """
-    def __init__(self):
+    def __init__(self) -> None:
         self.active_connections: dict[str, WebSocket] = {}
 
     async def connect(self, websocket: WebSocket, client_id: str) -> None:
@@ -29,7 +29,7 @@ class ConnectionManager:
         else:
             await websocket.close(code=1000)  # Close the connection without accepting
 
-    def disconnect(self, client_id: str):
+    def disconnect(self, client_id: str) -> None:
         """
         Disconnect the WebSocket
         Args:
@@ -39,7 +39,7 @@ class ConnectionManager:
         """
         del self.active_connections[client_id]
 
-    async def close_all_connections(self):
+    async def close_all_connections(self) -> None:
         """
         Close all the WebSocket connections
         Args:
@@ -51,7 +51,7 @@ class ConnectionManager:
             await connection.send_text("Server shutting down")
             await connection.close(code=1000)
 
-    async def send_socket_message(self, message: str):
+    async def send_socket_message(self, message: str) -> None:
         """
         Send a message to all the WebSocket connections
         Args:
@@ -62,7 +62,7 @@ class ConnectionManager:
         for client_id, websocket in self.active_connections.items():
             await websocket.send_text(f"Client id {client_id} Message: {message}")
 
-    async def wait_for_connections_to_close(self):
+    async def wait_for_connections_to_close(self) -> None:
         """
         Wait for all the WebSocket connections to close
         Args:

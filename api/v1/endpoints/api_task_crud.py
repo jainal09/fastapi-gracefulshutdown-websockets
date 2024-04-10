@@ -73,7 +73,7 @@ async def read_task_by_id(task_id: str): # type: ignore
 
 
 @router.get("/get_queue_length/", response_model=QueueOut)
-async def read_task():
+async def read_task() -> QueueOut:
     """
     Get the length of the queue
     Args:

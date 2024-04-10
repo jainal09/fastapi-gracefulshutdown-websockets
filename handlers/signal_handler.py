@@ -11,7 +11,7 @@ manager = settings_config.manager
 
 
 class SignalHandler:
-    async def handle_exit(self):
+    async def handle_exit(self) -> None:
         """
         Handle the exit of the server
 
@@ -42,7 +42,7 @@ class SignalHandler:
         except asyncio.CancelledError:
             pass
 
-    def signal_handler(self):
+    def signal_handler(self) -> None:
         """
         Signal handler function
           Args:

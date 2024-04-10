@@ -10,7 +10,7 @@ class Settings:
     """
     manager = ConnectionManager()
     app = FastAPI()
-    queue = []
+    queue = []  # type: ignore
     # Define the host and port
     host = "0.0.0.0"
     port = 8000

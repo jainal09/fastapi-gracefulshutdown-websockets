@@ -109,7 +109,9 @@ line-ending = "auto"
 
 
 [tool.mypy]
-plugins = ["pydantic.mypy"]
+plugins = [
+  "pydantic.mypy"
+]
 follow_imports = "silent"
 # 3rd party import
 ignore_missing_imports = true
@@ -136,4 +138,9 @@ warn_return_any = false
 warn_unreachable = true
 # Misc
 pretty = true
-exclude = [".venv", "src/grpc_generated"]
+exclude = [".venv", "models/db"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true

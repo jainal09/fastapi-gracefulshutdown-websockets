@@ -22,7 +22,7 @@ def save_to_db(task_db_obj: TaskModel) -> None:
         db.close()
 
 
-def update_task(task_id: str, message: str):
+def update_task(task_id: str, message: str) -> dict:
     """
     Update the task in the database
     Args:
