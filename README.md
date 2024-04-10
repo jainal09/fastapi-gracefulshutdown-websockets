@@ -92,6 +92,10 @@ please open an issue or submit a pull request.
 docker build -t jainal09/grs-fast-api:v9 .
 ```
 
+## Newsletter
+![Scale Bites Image](images/scale_bites.png){: width="50%"}
+If you like my content, please subscribe to my newsletter Scale Bites. I will keep you updated on the latest articles, projects, and cool stuff I am working on. [Subscribe here](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7169831353377619968).
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
