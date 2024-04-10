@@ -93,7 +93,8 @@ docker build -t jainal09/grs-fast-api:v9 .
 ```
 
 ## Newsletter
-![Scale Bites Image](images/scale_bites.png){: width="50%"}
+<a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7169831353377619968"> <img src="images/scale_bites.png" alt="Scale Bites Image" width="300" height="300"></a>
+
 If you like my content, please subscribe to my newsletter Scale Bites. I will keep you updated on the latest articles, projects, and cool stuff I am working on. [Subscribe here](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7169831353377619968).
 
 ## License
