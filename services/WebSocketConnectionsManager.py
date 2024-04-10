@@ -22,6 +22,7 @@ class ConnectionManager:
         Returns:
             None
         """
+        print(f"Read Flag: {read_flag()}")
         if read_flag():  # Check if the flag is True for the server to accept connections
             await websocket.accept()
             await websocket.send_text(get_pod_name())

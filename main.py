@@ -24,7 +24,7 @@ def chain_signals() -> None:
     signal_handler.register_signal_handler()
 
 
-@app.websocket("/ws/{id}")
+@app.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str) -> None:
     await manager.connect(websocket, client_id)
     if read_flag():
