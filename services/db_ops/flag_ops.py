@@ -1,5 +1,4 @@
-from models.db.models import db
-from models.db.models import Flag
+from models.db.models import Flag, db
 
 
 def add_new_flag(flag_value: bool) -> None:
@@ -43,7 +42,7 @@ def read_flag() -> bool:
     Returns:
         bool: Flag value (True if the server is accepting connections, False otherwise)
     """
-    
+
     first_flag = db.query(Flag).first()
     if not first_flag:
         add_new_flag(True)

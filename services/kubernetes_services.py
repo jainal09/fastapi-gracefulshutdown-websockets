@@ -1,5 +1,6 @@
 import os
 
+
 def is_running_in_kubernetes() -> bool:
     """
     Check if the application is running inside a Kubernetes cluster
@@ -23,4 +24,3 @@ def get_pod_name() -> str:
                 POD Name: {os.environ.get('KUBE_POD_NAME')}"
     else:
         return "Not running inside Kubernetes"
-    

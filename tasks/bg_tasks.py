@@ -1,7 +1,6 @@
 import asyncio
-import time
 
-from models.db.models import Task
+from models.db.models import TaskModel
 from services.db_ops.task_ops import save_to_db, update_task
 from settings import settings_config
 
@@ -46,5 +45,5 @@ def queue_task(task_id: str) -> None:
     Returns:
         None
     """
-    task = Task(task_id=task_id, message=f"Task {task_id} queued")
+    task = TaskModel(task_id=task_id, message=f"Task {task_id} queued")
     save_to_db(task_db_obj=task)

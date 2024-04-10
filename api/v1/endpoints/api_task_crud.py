@@ -1,11 +1,9 @@
 import uuid
-from asyncio import Task
 
 from fastapi import APIRouter, BackgroundTasks, HTTPException
 from fastapi.responses import JSONResponse
-
 from models.api.models import QueueOut, TaskOut
-from models.db.models import SessionLocal, Task
+from models.db.models import SessionLocal, TaskModel
 from services.db_ops.flag_ops import read_flag
 from settings import settings_config
 from tasks.bg_tasks import process_task, queue_task, remove_task
@@ -45,7 +43,7 @@ async def create_task(background_tasks: BackgroundTasks) -> dict:
     task_id = str(uuid.uuid4())
     queue_task(task_id=task_id)
     print("🚀 Background process started 🚀")
-    background_tasks.add_task(process_task, task_id=task_id, 
+    background_tasks.add_task(process_task, task_id=task_id,
                               message=f"Task {task_id} processed")
     background_tasks.add_task(remove_task, task_id=task_id)
     queue.append(task_id)
@@ -63,7 +61,7 @@ async def read_task_by_id(task_id: str): # type: ignore
     """
     db = SessionLocal()
     try:
-        task = db.query(Task).filter(Task.task_id == task_id).first()
+        task = db.query(TaskModel).filter(TaskModel.task_id == task_id).first()
         if task is None:
             raise HTTPException(status_code=404, detail="Task not found")
 

@@ -1,8 +1,7 @@
-from fastapi import FastAPI
 import uvicorn
-from uvicorn.config import Config
-
+from fastapi import FastAPI
 from services.WebSocketConnectionsManager import ConnectionManager
+from uvicorn.config import Config
 
 
 class Settings:

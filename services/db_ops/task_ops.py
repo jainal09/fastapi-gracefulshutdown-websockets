@@ -1,11 +1,9 @@
 from fastapi import HTTPException
+from models.db.models import SessionLocal, TaskModel, db
 from sqlalchemy.exc import SQLAlchemyError
 
-from models.db.models import db
-from models.db.models import SessionLocal, Task
 
-
-def save_to_db(task_db_obj: Task) -> None:
+def save_to_db(task_db_obj: TaskModel) -> None:
     """
     Save the task to the database
     Args:
@@ -35,7 +33,7 @@ def update_task(task_id: str, message: str):
     """
     db = SessionLocal()
     try:
-        task = db.query(Task).filter(Task.task_id == task_id).first()
+        task = db.query(TaskModel).filter(TaskModel.task_id == task_id).first()
         if task is None:
             raise HTTPException(status_code=404, detail="Task not found")
         task.message = message  # type: ignore

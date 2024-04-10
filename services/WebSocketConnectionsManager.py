@@ -1,5 +1,4 @@
 import asyncio
-from typing import Dict
 
 from fastapi import WebSocket
 
@@ -12,9 +11,9 @@ class ConnectionManager:
     Connection Manager class to manage the WebSocket connections
     """
     def __init__(self):
-        self.active_connections: Dict[str, WebSocket] = {}
+        self.active_connections: dict[str, WebSocket] = {}
 
-    async def connect(self, websocket: WebSocket, id: str) -> None:
+    async def connect(self, websocket: WebSocket, client_id: str) -> None:
         """
         Connect the WebSocket
         Args:
@@ -26,11 +25,11 @@ class ConnectionManager:
         if read_flag():  # Check if the flag is True for the server to accept connections
             await websocket.accept()
             await websocket.send_text(get_pod_name())
-            self.active_connections[id] = websocket
+            self.active_connections[client_id] = websocket
         else:
             await websocket.close(code=1000)  # Close the connection without accepting
 
-    def disconnect(self, id: str):
+    def disconnect(self, client_id: str):
         """
         Disconnect the WebSocket
         Args:
@@ -38,7 +37,7 @@ class ConnectionManager:
         Returns:
             None
         """
-        del self.active_connections[id]
+        del self.active_connections[client_id]
 
     async def close_all_connections(self):
         """

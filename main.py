@@ -1,11 +1,8 @@
 import asyncio
 import os
 
-import uvicorn
-from uvicorn.config import Config
-from fastapi import WebSocket, WebSocketDisconnect
-
 from api.api import api_router
+from fastapi import WebSocket, WebSocketDisconnect
 from handlers.signal_handler import SignalHandler
 from services.db_ops.flag_ops import create_or_update_flag, read_flag
 from settings import settings_config
@@ -28,15 +25,15 @@ def chain_signals():
 
 
 @app.websocket("/ws/{id}")
-async def websocket_endpoint(websocket: WebSocket, id: str):
-    await manager.connect(websocket, id)
+async def websocket_endpoint(websocket: WebSocket, client_id: str):
+    await manager.connect(websocket, client_id)
     if read_flag():
         try:
             while True:
                 await websocket.receive_text()
 
         except WebSocketDisconnect:
-            manager.disconnect(id)
+            manager.disconnect(client_id)
 
 
 if __name__ == "__main__":

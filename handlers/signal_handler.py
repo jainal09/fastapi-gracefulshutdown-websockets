@@ -1,11 +1,9 @@
 # Define the signal handler function
 import asyncio
-import sys as system
-
-from uvicorn.server import HANDLED_SIGNALS
 
 from services.db_ops.flag_ops import create_or_update_flag
 from settings import settings_config
+from uvicorn.server import HANDLED_SIGNALS
 
 queue = settings_config.queue
 server = settings_config.server
@@ -43,7 +41,7 @@ class SignalHandler:
             # Wait for all tasks to finish
         except asyncio.CancelledError:
             pass
-    
+
     def signal_handler(self):
         """
         Signal handler function
@@ -57,7 +55,6 @@ class SignalHandler:
     def register_signal_handler(self) -> None:
         """
         Register signal handlers for the server
-        
         Args:
             None
         Returns:

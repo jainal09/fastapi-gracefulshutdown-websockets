@@ -11,7 +11,7 @@ Base.metadata.create_all(bind=engine)
 db = SessionLocal()
 
 
-class Task(Base):
+class TaskModel(Base):
     __tablename__ = "tasks"
 
     id = Column(Integer, primary_key=True, index=True)
