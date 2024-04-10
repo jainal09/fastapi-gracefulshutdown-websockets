@@ -24,8 +24,11 @@ The custom-implemented signal listener listens to all the SIGTERM signals send b
 ## Features
 
 ✅ Ensure zero task loss during deployments
+
 🔗 Keep existing clients connected while preventing new connections to a terminating pod
+
 📣 Provide real-time feedback to clients through WebSocket notifications
+
 🚦 Mitigate race conditions between pod termination and task creation
 
 ## Installation
