@@ -32,6 +32,13 @@ that uses websockets.
 2. Open your web browser and navigate to `http://localhost:8000/docs` to access the 
    application.
 
+### Kubernetes
+1. Deploy the application to a Kubernetes cluster:
+
+    ```shell
+    kubectl apply -f k8s/deployment.yaml
+    ```
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements,
