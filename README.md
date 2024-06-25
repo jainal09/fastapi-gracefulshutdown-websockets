@@ -1,7 +1,7 @@
 # FastApi Graceful Shutdowns with Websockets
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Dependency Management: Poetry](https://img.shields.io/badge/Dependency%20Managment-Poetry-blue?logo=python&logoColor=yellow)](https://python-poetry.org/) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
- [![Linter: Flake8](https://img.shields.io/badge/Linter-Flake8-blue?logo=python&logoColor=yellow)](https://flake8.pycqa.org/en/latest/) [![Formatter: Black](https://img.shields.io/badge/Formatter-Black-blue?logo=python&logoColor=yellow)](https://black.readthedocs.io/en/stable/) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![python: 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
+ [![Linter: Flake8](https://img.shields.io/badge/Linter-Flake8-blue?logo=python&logoColor=yellow)](https://flake8.pycqa.org/en/latest/) [![Formatter: Black](https://img.shields.io/badge/Formatter-Black-blue?logo=python&logoColor=yellow)](https://black.readthedocs.io/en/stable/) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![python: 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-311/)
 
 ![Header Image](images/header.png)
 
